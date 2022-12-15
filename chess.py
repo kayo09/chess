@@ -1,6 +1,6 @@
 class king:
     
-    location
+    locatio
     max_move_length
     team
     is_alive
@@ -12,7 +12,7 @@ class king:
         pass
 
     def where_on_board():
-        print("k" at location)
+        pass
         
 
 class bishop: #moves diagonally infinitely
@@ -21,7 +21,7 @@ class bishop: #moves diagonally infinitely
     team
     is_alive
     
-    def dostuff():
+    def travel():
         print("hewo")
 
 class knight: #moves in an L shape, can jump over other pieces
@@ -39,8 +39,20 @@ class rook: #moves vert + horz infinitely
     team
     is_alive
     
-    def dostuff():
-        print("hewo")
+    def travel(direction, distance): #take in direction (NSEW), as well as distance we want to go
+        
+        if direction == North:
+            location = newPos
+        
+        elif direction == South:
+            print("hewo")
+            
+        elif direction == West:
+            print("hewo")
+            
+        elif direction == East:
+            print("hewo")
+            
         
 class queen:#moves vert, horiz, diag infinitely
     location
@@ -57,8 +69,15 @@ class pawn:#moves one forward, kills diagonally
     max_move_length
     team
     is_alive
+    is_started
     
     
     
     def dostuff():
         print("hewo")
+        
+board = [3][3]
+
+board = [[rook,0,0],[0,0,0],[0,0,0]]
+
+print = [board]
