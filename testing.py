@@ -10,7 +10,6 @@ class book: #moves vert + horz infinitely
     def travel(direction, distance): #take in direction (NSEW), as well as distance we want to go
         
         
-        
         if direction == North:
             location = newPos
         
@@ -28,6 +27,6 @@ class book: #moves vert + horz infinitely
 
 rook1 = book( (0,0) , True, "rook1" , "black")
 
-board = [[rook1.name + rook1.team,0,0],[0,0,0],[0,0,0]]
+board = [[rook1.name,0,0],[0,0,0],[0,0,0]]
 
 print (board)
