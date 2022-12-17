@@ -4,9 +4,9 @@ class Pieces:
         self.type = type
         self.matrix = matrix
 
-    def which_piece(self, piece_obj):
-        if piece_obj == 'r':
-            self.rook()
+    # def which_piece(self, piece_obj):
+    #     if piece_obj == 'r':
+    #         self.rook()
 
-    def rook(self, matrix):
-        pass
+    # def movement(self, toRow, toColumn,):
+    #     pass

@@ -15,8 +15,8 @@ bq = Pieces('b', 'q', matrix)
 wq = Pieces('w', 'q', matrix)
 bkn = Pieces('b', 'kn', matrix)
 wkn = Pieces('w', 'kn', matrix)
-black_pieces = [br, bkn, bb, bq, bk, bp]
-white_pieces = [wr, wkn, wb, wq, wk, wp]
+black_pieces = [br.type, bkn.type, bb.type, bq.type, bk.type, bp.type]
+white_pieces = [wr.type, wkn.type, wb.type, wq.type, wk.type, wp.type]
 
 
 class ChessEngine:
@@ -26,5 +26,7 @@ class ChessEngine:
 
 board_obj = Board(matrix)
 matrix = board_obj.set_up_black_pieces(matrix, black_pieces)
-print(board_obj.get_index(wr))
+board_obj.set_up_white_pieces(matrix, white_pieces)
 print(np.matrix(matrix))
+rook = matrix[0][0]
+# print(rook.type+''+rook.type)

@@ -8,6 +8,8 @@ what does a chess engine hold?
 --> Board:
 	-a matrix 8x8
 	-matrix should have algebraic chess notation
+	-sets up black and white pieces using chess engine 
+	
 
 
 --> pieces:

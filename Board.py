@@ -25,6 +25,3 @@ class Board:
             else:
                 matrix[7][i] = white_pieces[-(i-1)]
         return self.matrix
-
-    def get_index(self, piece):
-        piece_index = self.matrix.index(piece)
