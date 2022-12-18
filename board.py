@@ -1,30 +1,27 @@
-class board:
-    #board_mat = [8][8]
-    
-    print("hello")
+import numpy as np
+from Pieces import Pieces
 
 
-# checks for piece potential moves compatibility
-# def potential_moves_for_pieces(obj):
-#     where_piece_is(obj)  # returns position
+class Board:
+    def __init__(self, matrix):
+        self.matrix = matrix
 
+    def set_up_black_pieces(self, matrix, black_pieces):
+        for i in range(8):
+            matrix[1][i] = black_pieces[len(black_pieces)-1]
+        for i in range(8):
+            if (i <= 4):
+                matrix[0][i] = black_pieces[i]
+            else:
+                matrix[0][i] = black_pieces[-(i-1)]
+        return self.matrix
 
-# def where_piece_is(obj):
-#     obj.location
-
-
-# def valid_moves():  # just for board compatibility
-#     pass  # move has to be within range of the board
-
-# def checkGameOver():
-#     pass
-
-# def stalemate():
-#     pass
-
-# def winner():
-#     pass
-
-
-
-
+    def set_up_white_pieces(self, matrix, white_pieces):
+        for i in range(8):
+            matrix[6][i] = white_pieces[len(white_pieces)-1]
+        for i in range(8):
+            if (i <= 4):
+                matrix[7][i] = white_pieces[i]
+            else:
+                matrix[7][i] = white_pieces[-(i-1)]
+        return self.matrix
