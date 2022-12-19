@@ -1,12 +1,7 @@
 class Pieces:
-    def __init__(self, team, type, matrix):
+    def __init__(self, team, which_piece, matrix, x_coordinate, y_coordinate):
         self.team = team
-        self.type = type
+        self.which_piece = which_piece
         self.matrix = matrix
-
-    # def which_piece(self, piece_obj):
-    #     if piece_obj == 'r':
-    #         self.rook()
-
-    # def movement(self, toRow, toColumn,):
-    #     pass
+        self.x_coordinate = x_coordinate
+        self.y_coordinate = y_coordinate

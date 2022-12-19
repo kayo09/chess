@@ -2,21 +2,23 @@ import numpy as np
 from Pieces import Pieces
 from Board import Board
 row, col = (8, 8)
+x_coordinate = 0
+y_coordinate = 0
 matrix = [[0 for i in range(row)]for j in range(col)]
-bp = Pieces('b', 'p', matrix)
-wp = Pieces('w', 'p', matrix)
-bk = Pieces('b', 'k', matrix)
-wk = Pieces('w', 'k', matrix)
-br = Pieces('b', 'r', matrix)
-wr = Pieces('w', 'r', matrix)
-bb = Pieces('b', 'b', matrix)
-wb = Pieces('w', 'b', matrix)
-bq = Pieces('b', 'q', matrix)
-wq = Pieces('w', 'q', matrix)
-bkn = Pieces('b', 'kn', matrix)
-wkn = Pieces('w', 'kn', matrix)
-black_pieces = [br.type, bkn.type, bb.type, bq.type, bk.type, bp.type]
-white_pieces = [wr.type, wkn.type, wb.type, wq.type, wk.type, wp.type]
+# bp = Pieces('b', 'p', matrix, x_coordinate, y_coordinate)
+# wp = Pieces('w', 'p', matrix, x_coordinate, y_coordinate)
+# bk = Pieces('b', 'k', matrix, x_coordinate, y_coordinate)
+# wk = Pieces('w', 'k', matrix, x_coordinate, y_coordinate)
+# br = Pieces('b', 'r', matrix, x_coordinate, y_coordinate)
+# wr = Pieces('w', 'r', matrix, x_coordinate, y_coordinate)
+# bb = Pieces('b', 'b', matrix, x_coordinate, y_coordinate)
+# wb = Pieces('w', 'b', matrix, x_coordinate, y_coordinate)
+# bq = Pieces('b', 'q', matrix, x_coordinate, y_coordinate)
+# wq = Pieces('w', 'q', matrix, x_coordinate, y_coordinate)
+# bkn = Pieces('b', 'kn', matrix, x_coordinate, y_coordinate)
+# wkn = Pieces('w', 'kn', matrix, x_coordinate, y_coordinate)
+# black_pieces = [br, bkn, bb, bq, bk, bp]
+# white_pieces = [wr, wkn, wb, wq, wk, wp]
 
 
 class ChessEngine:
@@ -25,8 +27,15 @@ class ChessEngine:
 
 
 board_obj = Board(matrix)
-matrix = board_obj.set_up_black_pieces(matrix, black_pieces)
-board_obj.set_up_white_pieces(matrix, white_pieces)
+matrix = board_obj.set_up_black_pieces()
+board_obj.set_up_white_pieces()
+
 print(np.matrix(matrix))
-rook = matrix[0][0]
-# print(rook.type+''+rook.type)
+# for i in range(8):
+#     for j in range(8):
+#         print(matrix[i][j].which_piece)
+print(matrix[0][7].x_coordinate)
+print(matrix[0][7].y_coordinate)
+matrix = board_obj.movement(3, 0, 0, 0)
+print(matrix[3][0].x_coordinate)
+# print(rook+''+rook)
