@@ -58,7 +58,8 @@ def promote(color): # If a pawn reaches the other end, it becomes a king
             if (matrix[0][x == wp]):
                 x = bq            
     
-    
+def hello(color): 
+    print("POOP")
     
 # class Play:
     
