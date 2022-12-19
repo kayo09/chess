@@ -38,9 +38,36 @@ class Board:
         piece = self.matrix[fromRow][fromColoumn]
         print(type(piece))
         which_piece = piece.which_piece
-        if (which_piece == 'r'):
+        if (which_piece == 'r'):  # for rook
             if (toRow == fromRow or toColumn == fromColoumn):
                 self.matrix[toRow][toColumn] = piece
+        if (which_piece == 'kn'):
+            if ((toRow == fromRow+2 and toColumn == fromColoumn+1) or (toRow == fromRow+1 and toColumn == fromColoumn+2)):
+                self.matrix[toRow][toColumn] = piece
+        if (which_piece == 'b'):
+            pass
         return self.matrix
+
+    def castle(color):  # this will make the king and rook swap positions if they are in initial position
+        if (color == white_pieces):
+            if (matrix[0][0] == "r" and matrix[0][4] == "k"):
+                print("white rook and king are in initial position, we can castle")
+                matrix[0][0], matrix[0][4] = matrix[0][4], matrix[0][0]
+
+        elif (color == black_pieces):
+            if (matrix[7][0] == br and matrix[0][4] == wk):
+                print("rook and king are in initial position, we can castle")
+                matrix[7][0], matrix[0][4] = matrix[0][4], matrix[7][0]
+
+    def promote(color):  # If a pawn reaches the other end, it becomes a king
+        if (color == white_pieces):
+            for x in range(7):
+                if (matrix[7][x == wp]):
+                    x = wq
+
+    if (color == black_pieces):
+        for x in range(7):
+            if (matrix[0][x == wp]):
+                x = bq
     # to : coordinates [][]
     # from : coordinates [][]
