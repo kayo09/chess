@@ -1,6 +1,8 @@
 import numpy as np
 from Pieces import Pieces
 
+# testing
+
 
 class Board:
     def __init__(self, matrix):
@@ -37,7 +39,7 @@ class Board:
     def movement(self, toRow, toColumn, fromRow, fromColoumn):
         piece = self.matrix[fromRow][fromColoumn]
         which_piece = piece.which_piece
-        if (which_piece == 'r'):  # for rook
+        if (which_piece == 'r'):
             if (toRow == fromRow or toColumn == fromColoumn):
                 self.matrix[fromRow][fromColoumn] = 0
                 self.matrix[toRow][toColumn] = piece
