@@ -29,13 +29,9 @@ class ChessEngine:
 board_obj = Board(matrix)
 matrix = board_obj.set_up_black_pieces()
 board_obj.set_up_white_pieces()
-
-print(np.matrix(matrix))
-# for i in range(8):
-#     for j in range(8):
-#         print(matrix[i][j].which_piece)
-print(matrix[0][7].x_coordinate)
-print(matrix[0][7].y_coordinate)
+board_obj.print_board()
 matrix = board_obj.movement(3, 0, 0, 0)
-print(matrix[3][0].x_coordinate)
+print("\n")
+
+board_obj.print_board()
 # print(rook+''+rook)
