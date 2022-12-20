@@ -78,6 +78,31 @@ class Board:
             else:
                 print(self.matrix[row][col], end=' ')
 
+    def pieceValue(piece):
+        
+        obj = Pieces
+        
+        if obj.which_piece == p:
+            return 1
+        
+        elif obj.which_piece == r: 
+            return 5
+        
+        elif obj.which_piece == b:
+            return 3
+        
+        elif obj.which_piece == k:
+            return 2
+        
+        elif obj.which_piece == 
+            return 4
+        
+        
+        
+    
+    def calcScore(self):
+        pass
+        
     # def castle(color):  # this will make the king and rook swap positions if they are in initial position
     #     if (color == white_pieces):
     #         if (matrix[0][0] == "r" and matrix[0][4] == "k"):
