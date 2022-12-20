@@ -41,33 +41,48 @@ class Board:
         which_piece = piece.which_piece
         if (which_piece == 'r'):
             if (toRow == fromRow or toColumn == fromColoumn):
-                self.matrix[fromRow][fromColoumn] = 0
-                self.matrix[toRow][toColumn] = piece
+                if (self.can_move(piece)):
+                    self.matrix[fromRow][fromColoumn] = 0
+                    self.matrix[toRow][toColumn] = piece
         if (which_piece == 'kn'):
             if ((toRow == fromRow+2 and toColumn == fromColoumn+1) or (toRow == fromRow+1 and toColumn == fromColoumn+2)):
-                self.matrix[fromRow][fromColoumn] = 0
-                self.matrix[toRow][toColumn] = piece
+                if (self.can_move(piece)):
+                    self.matrix[fromRow][fromColoumn] = 0
+                    self.matrix[toRow][toColumn] = piece
         if (which_piece == 'b'):
             dx = abs(toRow-fromRow)
             dy = abs(toColumn-fromColoumn)
             if (dx == dy) and (dx > 0):
+                if (self.can_move(piece)):
+                    self.matrix[fromRow][fromColoumn] = 0
+                    self.matrix[toRow][toColumn] = piece
+        if (which_piece == 'q'):
+            if (self.can_move(piece)):
                 self.matrix[fromRow][fromColoumn] = 0
                 self.matrix[toRow][toColumn] = piece
-            pass
+
+        self.print_board
         return self.matrix
 
     def can_move(self, fromRow, fromColoumn, toRow, toColoumn, piece):
         capture = []
         move = True
-        x = fromRow+1
-        y = fromColoumn+1
-        if (x != toRow) or (y != toColoumn):
-            if (type(self.matrix[x][y]) == Pieces):
+        while (toRow != fromRow) or (toColoumn != fromColoumn):
+            x = fromRow+1
+            y = fromColoumn+1
+            if (self.matrix[x][y] != 0):
                 if (self.matrix[x][y].team == piece.team):
-                    print("illegal move since a team piece is present at the location")
+                    print(
+                        f"illegal move since a team piece is present at the location{x}{y}")
+                    move = False
                 else:
                     capture.append(self.matrix[x][y])
-                    self.matrix[x][y] = piece
+                    move = True
+            else:
+                move = True
+
+            self.can_move(x, y, toRow, toColoumn, piece)
+        return move
 
     def print_board(self):
         for i in range(0, 8*8):
@@ -78,6 +93,29 @@ class Board:
             else:
                 print(self.matrix[row][col], end=' ')
 
+<<<<<<< HEAD
+    def castle(self, piece):  # this will make the king and rook swap positions if they are in initial position
+        if (piece.team == 'w'):
+            if (self.matrix[0][0] == "r" and self.matrix[0][4] == "k"):
+                print("white rook and king are in initial position, we can castle")
+                self.matrix[0][0], self.matrix[0][4] = self.matrix[0][4], self.matrix[0][0]
+
+        elif (piece.team == 'b'):
+            if (self.matrix[7][0] == 'r' and self.matrix[0][4] == 'k'):
+                print("rook and king are in initial position, we can castle")
+                self.matrix[7][0], self.matrix[0][4] = self.matrix[0][4], self.matrix[7][0]
+
+    def promote(self, piece):  # If a pawn reaches the other end, it becomes a king
+        if (piece.team == 'w'):
+            for x in range(7):
+                if (self.matrix[7][x == 'p']):
+                    x = input("which piece should the pawn be promoted to: ")
+
+        if (piece.team == 'b'):
+            for x in range(7):
+                if (self.matrix[0][x == 'p']):
+                    x = input("which piece should the pawn be promoted to: ")
+=======
     def pieceValue(piece):
         
         obj = Pieces
@@ -132,3 +170,4 @@ class Board:
     #             x = bq
     # # to : coordinates [][]
     # # from : coordinates [][]
+>>>>>>> b3a3da3db7c557c48eaca2229e298821be25eaec
