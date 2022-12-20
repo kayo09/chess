@@ -15,12 +15,18 @@ class MiniMax:
         inf = float('inf')
         max_value = -inf
 
-        previous_nodes = self.previous_nodes
+        previous_nodes = self.previous_nodes(node)
+        for state in previous_nodes:
+            max_val = max(max_val, self.min_value())
 
     def is_end(self, node):
         assert node is not None
-        return len(node.children) == 0
+        return len(node.value) == 0
 
     def getUtil(self, node):
+        assert node is not None
+        return node.value
+
+    def previous_node(self, node):
         assert node is not None
         return node.value
