@@ -10,7 +10,7 @@ class Board:
 
     def set_up_black_pieces(self):
         for i in range(8):
-            which_piece = 'r'  # input("Which piece:")
+            which_piece = input("Which piece:")
             self.matrix[0][i] = Pieces('b', which_piece, self.matrix, 0, i)
         for i in range(8):
             self.matrix[1][i] = Pieces('b', 'p', self.matrix, 1, i)
@@ -19,7 +19,7 @@ class Board:
 
     def set_up_white_pieces(self):
         for i in range(8):
-            which_piece = 'r'  # input("Which piece:")
+            which_piece = input("Which piece:")
             self.matrix[7][i] = Pieces('w', which_piece, self.matrix, 7, i)
         for i in range(8):
             self.matrix[6][i] = Pieces('w', 'p', self.matrix, 6, i)
@@ -122,27 +122,21 @@ class Board:
         
         if obj.which_piece == 'p':
             return 1
-        
         elif obj.which_piece == 'kn': 
             return 3
-        
         elif obj.which_piece == 'b':
             return 3
-        
         elif obj.which_piece == 'r':
             return 5
-        
         elif obj.which_piece == 'q':
             return 6
-        
         elif obj.which_piece == 'k':
             return 100
         
-        
-        
-    
     def calcScore(matrix):
+        totalScore = 0
         for i in range(7):
-            for j in range (7):
+            for j in range(7):
+                totalScore = totalScore + Board.pieceValue[i,j]
                 
     
