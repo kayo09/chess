@@ -93,7 +93,6 @@ class Board:
             else:
                 print(self.matrix[row][col], end=' ')
 
-<<<<<<< HEAD
     def castle(self, piece):  # this will make the king and rook swap positions if they are in initial position
         if (piece.team == 'w'):
             if (self.matrix[0][0] == "r" and self.matrix[0][4] == "k"):
@@ -115,53 +114,35 @@ class Board:
             for x in range(7):
                 if (self.matrix[0][x == 'p']):
                     x = input("which piece should the pawn be promoted to: ")
-=======
+                    
+                    
     def pieceValue(piece):
         
         obj = Pieces
         
-        if obj.which_piece == p:
+        if obj.which_piece == 'p':
             return 1
         
-        elif obj.which_piece == r: 
-            return 5
-        
-        elif obj.which_piece == b:
+        elif obj.which_piece == 'kn': 
             return 3
         
-        elif obj.which_piece == k:
-            return 2
+        elif obj.which_piece == 'b':
+            return 3
         
-        elif obj.which_piece == 
-            return 4
+        elif obj.which_piece == 'r':
+            return 5
+        
+        elif obj.which_piece == 'q':
+            return 6
+        
+        elif obj.which_piece == 'k':
+            return 100
         
         
         
     
-    def calcScore(self):
-        pass
-        
-    # def castle(color):  # this will make the king and rook swap positions if they are in initial position
-    #     if (color == white_pieces):
-    #         if (matrix[0][0] == "r" and matrix[0][4] == "k"):
-    #             print("white rook and king are in initial position, we can castle")
-    #             matrix[0][0], matrix[0][4] = matrix[0][4], matrix[0][0]
-
-    #     elif (color == black_pieces):
-    #         if (matrix[7][0] == br and matrix[0][4] == wk):
-    #             print("rook and king are in initial position, we can castle")
-    #             matrix[7][0], matrix[0][4] = matrix[0][4], matrix[7][0]
-
-    # def promote(color):  # If a pawn reaches the other end, it becomes a king
-    #     if (color == white_pieces):
-    #         for x in range(7):
-    #             if (matrix[7][x == wp]):
-    #                 x = wq
-
-    # if (color == black_pieces):
-    #     for x in range(7):
-    #         if (matrix[0][x == wp]):
-    #             x = bq
-    # # to : coordinates [][]
-    # # from : coordinates [][]
->>>>>>> b3a3da3db7c557c48eaca2229e298821be25eaec
+    def calcScore(matrix):
+        for i in range(7):
+            for j in range (7):
+                
+    
